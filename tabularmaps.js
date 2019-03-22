@@ -77,8 +77,8 @@ module.exports = {
         geometry: {
           type: 'Point',
           coordinates: [
-            tile02long(0.5),
-            tile02lat(margin + paddingy * 0.75)
+            tile02long(margin + span),
+            tile02lat(margin + span * 0.5)
           ]
         },
         properties: {
