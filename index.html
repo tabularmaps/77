@@ -15,22 +15,27 @@ body { margin: 0; top: 0; bottom: 0; width: 100%; }
 <body>
 <div id="map"></div>
 <script>
-params = document.location.href.split('?')[1].split('#')[0].split('&').map(v => v.split('='))
-  .reduce((acc, c) => { acc[c[0]] = c[1]; return acc }, {})
+params = null
+if (document.location.href.split('?').length == 2) {
+  params = document.location.href.split('?')[1].split('#')[0]
+    .split('&').map(v => v.split('='))
+    .reduce((acc, c) => { acc[c[0]] = c[1]; return acc }, {})
+  console.log(params)
 
-console.log(params)
-
-map = tabularmaps.createMap({
-  title: decodeURIComponent(params.title),
-  table: [params.prefs.split(',').map(v => parseInt(v)), 1],
-  color: function(v) {
-    if (v == 1) {
-      return params.color
-    } else {
-      return ['rgb', 207, 207, 207]
+  map = tabularmaps.createMap({
+    title: decodeURIComponent(params.title),
+    table: [params.prefs.split(',').map(v => parseInt(v)), 1],
+    color: function(v) {
+      if (v == 1) {
+        return params.color
+      } else {
+        return ['rgb', 207, 207, 207]
+      }
     }
-  }
-})
+  })
+} else {
+  map = tabularmaps.createMap()
+}
 </script>
 </body>
 </html>
