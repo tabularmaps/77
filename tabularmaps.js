@@ -145,7 +145,7 @@ module.exports = {
 
     let style = {
       version: 8,
-      glyphs: 'https://vectortiles.xyz/fonts/{fontstack}/{range}.pbf',
+      glyphs: 'https://maps.gsi.go.jp/xyz/noto-jp/{fontstack}/{range}.pbf',
       sources: {
         v: {
           type: 'geojson',
@@ -178,7 +178,7 @@ module.exports = {
           source: 'v',
           layout: {
             'text-font': [
-              'sans'
+              'NotoSansCJKjp-Regular'
             ],
             'text-field': [
               'get',
